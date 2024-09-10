@@ -1,5 +1,4 @@
-﻿
-namespace Catalog.API.Products.GetProductByCategory
+﻿namespace Catalog.API.Products.Queries.GetProductByCategory
 {
     public record GetProductByCategoryQuery(string Category) : IQuery<GetProductByCategoryResult>;
     public record GetProductByCategoryResult(IEnumerable<Product> Products);
@@ -9,7 +8,7 @@ namespace Catalog.API.Products.GetProductByCategory
     {
         public async Task<GetProductByCategoryResult> Handle(GetProductByCategoryQuery query, CancellationToken cancellationToken)
         {
-            logger.LogInformation("GetProductByCategoryQueryHandler.Handler called with {@Query}",query);
+            logger.LogInformation("GetProductByCategoryQueryHandler.Handler called with {@Query}", query);
             var products = await session.Query<Product>()
                 .Where(p => p.Category.Contains(query.Category))
                 .ToListAsync();

@@ -1,7 +1,6 @@
-﻿
-namespace Catalog.API.Products.DeleteProduct
+﻿namespace Catalog.API.Products.Commands.DeleteProduct
 {
-    public record DeleteProductCommand(Guid Id): ICommand<DeleteProductResult>;
+    public record DeleteProductCommand(Guid Id) : ICommand<DeleteProductResult>;
     public record DeleteProductResult(bool IsSuccess);
     internal class DeleteProductCommandHandler(IDocumentSession session, ILogger<DeleteProductCommandHandler> logger)
         : ICommandHandler<DeleteProductCommand, DeleteProductResult>

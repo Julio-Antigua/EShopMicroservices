@@ -1,5 +1,4 @@
-﻿
-namespace Catalog.API.Products.GetProductById
+﻿namespace Catalog.API.Products.Queries.GetProductById
 {
     //public record GetProductByIdRequest();
     public record GetProductByIdResponse(Product Product);
